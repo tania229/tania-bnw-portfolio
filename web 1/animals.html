@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature | tania_bnw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">tania-bnw</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>tania_bnw🖤</h1>
+        <p>black & white photography _ nature . architecture . people</p>
+    </header>
+
+    <section id="portfolio-filters">
+        <a href="portfolio.html" class="filter-btn">All</a>
+        <a href="nature.html" class="filter-btn ">Nature</a>
+        <a href="architecture.html" class="filter-btn">Architecture</a>
+        <a href="people.html" class="filter-btn">People</a>
+        <a href="animals.html" class="filter-btn active">Animals</a>
+    </section>
+    
+    <section id="portfolio-grid">
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo52.jpeg" alt="Black and White Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo57.jpeg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo70.jpeg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo72.jpeg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo73.jpeg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo62.jpg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo40.jpg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo42.jpg" alt="Black and white Animals photography">
+        </div>
+        <div class="photo-item" data-caption="">
+            <img src="tania-bnw-portfolio/photo43.jpg" alt="Black and white Animals photography">
+        </div>
+
+    </section>
+
+
+
+    <div id="lightbox">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged photo">
+        <a id="lightbox-insta" href="https://www.instagram.com/tania-bnw-portfolio/" target="_blank">View on instagram➡️</a>
+    </div>
+
+    <div id="music-toggle">
+        <audio id="bg-music" loop>
+            <source src="tania-bnw-portfolio/theme.mp3" type="audio/mpeg">
+        </audio>
+        <button id="music-btn">🎵</button>
+    </div>
+
+   <script>
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+
+    const savedTime = localStorage.getItem('musicTime');
+    const wasPlaying = localStorage.getItem('musicOn') === 'true';
+
+    bgMusic.addEventListener('loadedmetadata', () => {
+        if (savedTime) {
+            bgMusic.currentTime = parseFloat(savedTime);
+        }
+        if (wasPlaying) {
+            bgMusic.play().catch(() => {});
+            musicBtn.classList.add('playing');
+        }
+    });
+
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            musicBtn.classList.add('playing');
+            localStorage.setItem('musicOn', 'true');
+        } else {
+            bgMusic.pause();
+            musicBtn.classList.remove('playing');
+            localStorage.setItem('musicOn', 'false');
+        }
+    });
+
+    bgMusic.addEventListener('timeupdate', () => {
+        localStorage.setItem('musicTime', bgMusic.currentTime);
+    });
+
+    window.addEventListener('beforeunload', () => {
+        localStorage.setItem('musicTime', bgMusic.currentTime);
+    });
+</script>
+</body>
+</html>
