@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"
+        <meta name="viewport" content="width=device-width, initail-scale="1.0>
+        <title>About | tania_bnw🖤</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <nav>
+            <div class="logo">tania-bnw</div>
+            <ul class="nav-links">
+                <li><a href="imdex.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <section id="about">
+    <h2>About</h2>
+    <p class="subtitle">Photographer · Himachal Pradesh, India</p>
+
+    <button id="read-aloud-btn" class="read-btn">🔊 Listen to this page</button>
+    
+    <p class="lead">I was born in Himachal Pradesh — a state so naturally beautiful that I sometimes think it planted the seed for everything I do now, long before I ever picked up a camera.</p>
+
+    <p>The mountains, the light, the quiet — I didn't know it then, but growing up surrounded by that kind of beauty shapes how you look at things later in life. I moved away with my family when I was seven, for studies, and even the place I now call home is tucked in a town surrounded by mountains on all four sides. I suppose I never really left the mountains behind — they've just followed me from one home to the next.</p>
+
+    <hr class="divider">
+
+    <p>Photography came much later, and purely as a hobby — just a phone in hand and a habit of noticing things. In the beginning, I shot in colour: everyday, ordinary moments, captured without much thought behind them.</p>
+
+    <p>Then one day I came across a black-and-white photograph online that stopped me completely. I don't even remember who posted it or where, but something about it — the way it stripped everything down to just light, shadow, and form — changed how I saw the world around me.</p>
+
+    <p class="pull">"That's when I stopped treating it as one-off posts and started building it properly — as a black-and-white photographer."</p>
+
+    <p>I'd been posting colour photos on Snapchat and Instagram for a while, just casually, without much response. Then, inspired by that photo, I posted my first monochrome shot on Instagram — and it did something my colour posts never had. People noticed it, liked it, responded to it in a way that told me I was onto something. That's when I stopped treating it as one-off posts and started building <strong>@tania_bnw</strong> properly, as a black-and-white photographer. It's still early — just three months into shooting seriously in monochrome, a little over 160 followers — but I've crossed 15,000 views in that time, and that's enough to tell me people are actually stopping to look.</p>
+
+    <hr class="divider">
+
+    <p>My process is simple, really. I don't plan shoots or chase locations. I just observe — I'll be walking somewhere, notice light falling a certain way on a tree, or a building holding an interesting shadow, or a stranger caught mid-moment — and I take my phone out and click. That's it. No fancy gear, no elaborate setup. Just paying attention.</p>
+
+    <p>I want to be honest about one thing: this is, and I want it to stay, a passion project. I'll keep growing it — more followers, more people seeing the work — but not at the cost of what makes it feel like mine. I'm not chasing anything here except getting better and staying curious.</p>
+
+    <p>Photography isn't the only way I create, either. I also paint and sketch, and I've made a few charcoal portraits along the way — different medium, same instinct: noticing something and trying to hold onto it.</p>
+
+    <hr class="divider">
+
+    <p>Every photo on this site is shot entirely on a phone, edited by hand, one frame at a time.</p>
+
+    <a class="back-link" href="index.html">← Back to Gallery</a>
+    <script>
+    const readBtn = document.getElementById('read-aloud-btn');
+    const aboutText = document.getElementById('about').innerText;
+    let utterance = null;
+
+    readBtn.addEventListener('click', () => {
+        if (speechSynthesis.speaking) {
+            speechSynthesis.cancel();
+            readBtn.classList.remove('reading');
+            readBtn.textContent = '🔊 Listen to this page';
+            return;
+        }
+
+        utterance = new SpeechSynthesisUtterance(aboutText);
+        utterance.rate = 0.95;
+        utterance.pitch = 1;
+
+        utterance.onend = () => {
+            readBtn.classList.remove('reading');
+            readBtn.textContent = '🔊 Listen to this page';
+        };
+
+        speechSynthesis.speak(utterance);
+        readBtn.classList.add('reading');
+        readBtn.textContent = '⏸ Stop reading';
+    });
+</script>
+</section>
+    </body>
+</html>
