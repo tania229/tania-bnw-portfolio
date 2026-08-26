@@ -7,10 +7,12 @@ body {
     background: #f2f0ec;
     color: #2a2a2a;
 }
+
 h1, h2, .logo {
-    font-family: 'Playfair Display' serif;
+    font-family: 'Playfair Display', serif;
     letter-spacing: 0.5px;
 }
+
 header p {
     font-size: 16px;
     letter-spacing: 0.3px;
@@ -53,6 +55,66 @@ nav {
 
 .nav-links a:hover {
     color: #999;
+}
+
+
+
+#hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    width: 90%;
+    animation: fadeIn 1.2s ease;
+}
+
+.hero-overlay h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.hero-overlay p {
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 
@@ -286,10 +348,24 @@ nav {
     min-width: 0;
 }
 
+.feature-tag {
+    color: #777;
+}
+
 .feature-title {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
+}
+
+.feature-title,
+.feature-title a {
+    color: #2a2a2a;
+    text-decoration: none;
+}
+
+.feature-row:hover .feature-title {
+    color: #000;
 }
 
 
@@ -322,6 +398,8 @@ nav {
     background: #333;
     color: #fff;
 }
+
+
 
 #portfolio-grid {
     column-count: 4;
@@ -358,7 +436,6 @@ nav {
 }
 
 
-
 #insta-cta {
     text-align: center;
     margin: 50px 0;
@@ -379,8 +456,6 @@ nav {
     background: #333;
     color: #fff;
 }
-
-
 
 #music-toggle {
     position: fixed;
@@ -405,92 +480,6 @@ nav {
     color: #fff;
 }
 
-
-
-@media (max-width: 600px) {
-    .feature-thumb {
-        flex-basis: 70px;
-        width: 70px;
-        height: 70px;
-    }
-
-    .feature-title {
-        font-size: 20px;
-    }
-}
-#hero {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.55);
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    width: 90%;
-}
-
-.hero-overlay h1 {
-    font-size: 48px;
-    margin-bottom: 12px;
-}
-
-.hero-overlay p {
-    font-size: 17px;
-    letter-spacing: 0.5px;
-    margin-bottom: 24px;
-}
-
-.hero-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid #fff;
-    border-radius: 30px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 15px;
-    transition: all 0.2s ease;
-}
-
-.hero-btn:hover {
-    background: #fff;
-    color: #000;
-}
-.hero-overlay {
-    animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -45%); }
-    to { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-.feature-title,
-.feature-title a {
-    color: #2a2a2a;
-    text-decoration: none;
-}
-
-.feature-tag {
-    color: #777;
-}
-
-.feature-row:hover .feature-title {
-    color: #000;
-}
 .read-btn {
     background: none;
     border: 1px solid #333;
@@ -509,29 +498,54 @@ nav {
     color: #fff;
 }
 
+
+
 @media (max-width: 700px) {
     body {
         padding: 0 12px;
     }
+
     nav {
         flex-direction: column;
         gap: 10px;
     }
+
     .nav-links {
         gap: 18px;
     }
-    
-    #photo-gallery,
-    #portfolio-grid {
+
+    #hero {
+        height: 45vh;
+    }
+
+    .hero-overlay h1 {
+        font-size: 30px;
+    }
+
+    .hero-overlay p {
+        font-size: 14px;
+    }
+
+    #photo-gallery {
         grid-template-columns: repeat(2, 1fr);
-        grid-area: 16px;
+        gap: 16px;
         padding: 10px;
     }
 
-    #photo-gallery .photo-item,
-    #photo-grid .photo-item:hover {
+    #photo-gallery .photo-item {
         grid-column: span 2 !important;
     }
+
+    #photo-gallery img {
+        height: 220px !important;
+    }
+
+    #portfolio-grid {
+        column-count: 2 !important;
+        column-gap: 16px !important;
+        padding: 10px;
+    }
+
     .feature-row {
         gap: 16px;
         padding: 14px 10px;
@@ -567,4 +581,4 @@ nav {
         padding: 6px 16px;
         font-size: 14px;
     }
-    }
+}
