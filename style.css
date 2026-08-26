@@ -508,3 +508,63 @@ nav {
     background: #333;
     color: #fff;
 }
+
+@media (max-width: 700px) {
+    body {
+        padding: 0 12px;
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        gap: 18px;
+    }
+    
+    #photo-gallery,
+    #portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-area: 16px;
+        padding: 10px;
+    }
+
+    #photo-gallery .photo-item,
+    #photo-grid .photo-item:hover {
+        grid-column: span 2 !important;
+    }
+    .feature-row {
+        gap: 16px;
+        padding: 14px 10px;
+    }
+
+    .feature-thumb {
+        flex-basis: 70px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .feature-title {
+        font-size: 20px;
+    }
+
+    #about {
+        padding: 20px 10px 50px;
+    }
+
+    #about p, #about p.lead, #about p.pull {
+        font-size: 16px;
+    }
+
+    #portfolio-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        margin: 0;
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+    }
